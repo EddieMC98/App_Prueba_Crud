@@ -26,6 +26,7 @@ class ProductoRequest extends FormRequest
         return [
             'name'=>'required|min:4|max:150',
             'brand'=>'required|min:4|max:50',
+            'año'=>'required',
             'category'=>'required|min:4|max:50',
             'price'=>'required|numeric|between:0,99999.99',
             'details'=>'required|min:10',

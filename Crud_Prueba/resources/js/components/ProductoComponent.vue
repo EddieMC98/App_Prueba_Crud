@@ -51,7 +51,8 @@
                   errores.name[0]
                 }}</span>
               </div>
-              <div class="mb-3">
+                                          <div class="row">
+                                            <div class="col">
                 <label for="brand" class="form-label">Marca</label>
                 <input
                   v-model="producto.brand"
@@ -62,7 +63,22 @@
                 <span class="text-danger" v-if="errores.brand">{{
                   errores.brand[0]
                 }}</span>
+</div>
+<div class="col">
+                 <label for="brand" class="form-label">Año</label>
+                <input
+                  v-model="producto.año"
+                  type="text"
+                  class="form-control"
+                  id="brand"
+                />
+                <span class="text-danger" v-if="errores.año">{{
+                  errores.año[0]
+                }}</span>
               </div>
+              </div>
+             
+
               <div class="mb-3">
                 <label for="category" class="form-label">Categoria</label>
                 <input
@@ -132,6 +148,7 @@
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
           <th scope="col">Marca</th>
+          <th scope="col">Año</th>
           <th scope="col">Categoria</th>
           <th scope="col">Precio</th>
           <th scope="col">Descripción</th>
@@ -143,6 +160,7 @@
           <th scope="row">{{ item.id }}</th>
           <td>{{ item.name }}</td>
           <td>{{ item.brand }}</td>
+          <td>{{ item.año }}</td>
           <td>{{ item.category }}</td>
           <td>{{ item.price }}</td>
           <td>{{ item.details }}</td>
@@ -242,6 +260,7 @@ export default {
       producto: {
         name: "",
         brand: "",
+        año:"",
         category: "",
         price: "0.00",
         details: "",
@@ -312,6 +331,7 @@ export default {
         this.tituloModal = "Editar Producto";
         this.producto.name = data.name;
         this.producto.brand = data.brand;
+        this.producto.año = data.año;
         this.producto.category = data.category;
         this.producto.price = data.price;
         this.producto.details = data.details;
@@ -320,6 +340,7 @@ export default {
         this.tituloModal = "Agregar Producto";
         this.producto.name = "";
         this.producto.brand = "";
+        this.producto.año="";
         this.producto.category = "";
         this.producto.price = "0.00";
         this.producto.details = "";

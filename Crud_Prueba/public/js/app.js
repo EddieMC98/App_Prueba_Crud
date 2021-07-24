@@ -2136,12 +2136,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       producto: {
         name: "",
         brand: "",
+        año: "",
         category: "",
         price: "0.00",
         details: ""
@@ -2299,6 +2318,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.tituloModal = "Editar Producto";
         this.producto.name = data.name;
         this.producto.brand = data.brand;
+        this.producto.año = data.año;
         this.producto.category = data.category;
         this.producto.price = data.price;
         this.producto.details = data.details;
@@ -2307,6 +2327,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.tituloModal = "Agregar Producto";
         this.producto.name = "";
         this.producto.brand = "";
+        this.producto.año = "";
         this.producto.category = "";
         this.producto.price = "0.00";
         this.producto.details = "";
@@ -39197,7 +39218,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("\n    Agregar Nuevo Producto\n  ")]
+      [_vm._v("\n      Agregar Nuevo Producto\n    ")]
     ),
     _vm._v(" "),
     _c("br"),
@@ -39223,7 +39244,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n            ×\n          ")]
+              [_vm._v("\n              ×\n            ")]
             )
           ]),
           _vm._v(" "),
@@ -39265,40 +39286,78 @@ var render = function() {
                   : _vm._e()
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "mb-3" }, [
-                _c(
-                  "label",
-                  { staticClass: "form-label", attrs: { for: "brand" } },
-                  [_vm._v("Marca")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.producto.brand,
-                      expression: "producto.brand"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", id: "brand" },
-                  domProps: { value: _vm.producto.brand },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "brand" } },
+                    [_vm._v("Marca")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.producto.brand,
+                        expression: "producto.brand"
                       }
-                      _vm.$set(_vm.producto, "brand", $event.target.value)
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "brand" },
+                    domProps: { value: _vm.producto.brand },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.producto, "brand", $event.target.value)
+                      }
                     }
-                  }
-                }),
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.brand
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v(_vm._s(_vm.errores.brand[0]))
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
-                _vm.errores.brand
-                  ? _c("span", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.errores.brand[0]))
-                    ])
-                  : _vm._e()
+                _c("div", { staticClass: "col" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "brand" } },
+                    [_vm._v("Año")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.producto.año,
+                        expression: "producto.año"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "brand" },
+                    domProps: { value: _vm.producto.año },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.producto, "año", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.año
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v(_vm._s(_vm.errores.año[0]))
+                      ])
+                    : _vm._e()
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "mb-3" }, [
@@ -39423,7 +39482,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n            Guardar\n          ")]
+              [_vm._v("\n              Guardar\n            ")]
             ),
             _vm._v(" "),
             _c(
@@ -39437,7 +39496,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n            Cancelar\n          ")]
+              [_vm._v("\n              Cancelar\n            ")]
             )
           ])
         ])
@@ -39457,6 +39516,8 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.brand))]),
             _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.año))]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.category))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.price))]),
@@ -39475,7 +39536,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n            Editar\n          ")]
+                [_vm._v("\n              Editar\n            ")]
               )
             ]),
             _vm._v(" "),
@@ -39490,7 +39551,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n            Eliminar\n          ")]
+                [_vm._v("\n              Eliminar\n            ")]
               )
             ])
           ])
@@ -39502,13 +39563,13 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-3 md-3 text-right text-primary" }, [
         _vm._v(
-          "\n      " +
+          "\n        " +
             _vm._s(_vm.productos.from) +
             " - " +
             _vm._s(_vm.productos.to) +
             " de: " +
             _vm._s(_vm.productos.total) +
-            "\n    "
+            "\n      "
         )
       ]),
       _vm._v(" "),
@@ -39714,6 +39775,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Marca")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Año")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
         _vm._v(" "),
